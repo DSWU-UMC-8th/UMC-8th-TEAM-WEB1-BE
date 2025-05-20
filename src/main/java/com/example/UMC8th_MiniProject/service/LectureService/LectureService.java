@@ -18,7 +18,7 @@ public class LectureService {
     public LectureService(LectureRepository lectureRepository){
         this.lectureRepository = lectureRepository;
     }
-    // 필터링 없이 전체 강의 조회 예시
+    // 필터링 없이 전체 강의 조회
     public List<LectureResponse> getAllLectures(){
         return lectureRepository.findAll().stream().map(LectureResponse::new).collect(Collectors.toList());
     }
@@ -33,7 +33,6 @@ public class LectureService {
         return lectureRepository.findByCategory(category)
                 .stream().map(LectureResponse::new).toList();
     }
-
     public List<LectureResponse> getLecturesByLevel(Level level) {
         return lectureRepository.findByLevel(level)
                 .stream().map(LectureResponse::new).toList();
