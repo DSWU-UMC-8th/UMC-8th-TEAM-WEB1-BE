@@ -1,6 +1,7 @@
 package com.example.UMC8th_MiniProject.service.LectureService;
 
 import com.example.UMC8th_MiniProject.Repository.LectureRepository;
+import com.example.UMC8th_MiniProject.domain.Lecture;
 import com.example.UMC8th_MiniProject.domain.enums.Category;
 import com.example.UMC8th_MiniProject.domain.enums.Level;
 import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
@@ -37,6 +38,9 @@ public class LectureService {
         return lectureRepository.findByLevel(level)
                 .stream().map(LectureResponse::new).toList();
     }
-
+    public LectureResponse getLectureById(Long lectureId){
+        Lecture lecture = lectureRepository.findById(lectureId).orElseThrow(() -> new IllegalArgumentException("해당 강의를 찾을 수 없습니다."));
+        return new LectureResponse(lecture);
+    }
 
 }

@@ -7,10 +7,7 @@ import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +35,11 @@ public class LectureController {
         }
 
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{lectureId}")
+    public ResponseEntity<LectureResponse> getLectureById(@PathVariable Long lectureId) {
+        LectureResponse lecture = lectureService.getLectureById(lectureId);
+        return ResponseEntity.ok(lecture);
     }
 }
