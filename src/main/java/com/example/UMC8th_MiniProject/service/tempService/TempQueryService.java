@@ -1,4 +1,4 @@
-package com.example.UMC8th_MiniProject.service.TempService;
+package com.example.UMC8th_MiniProject.service.tempService;
 
 public interface TempQueryService {
 

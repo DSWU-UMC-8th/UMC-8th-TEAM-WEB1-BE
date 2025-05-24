@@ -1,6 +1,6 @@
-package com.example.UMC8th_MiniProject.service.LectureService;
+package com.example.UMC8th_MiniProject.service.lectureService;
 
-import com.example.UMC8th_MiniProject.Repository.LectureRepository;
+import com.example.UMC8th_MiniProject.repository.LectureRepository;
 import com.example.UMC8th_MiniProject.domain.Lecture;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class SearchService {
+
     private final LectureRepository lectureRepository;
 
     public List<String> findAllByKeyword(final String keyword){
