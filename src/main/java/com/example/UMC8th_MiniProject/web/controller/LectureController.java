@@ -4,6 +4,8 @@ import com.example.UMC8th_MiniProject.domain.enums.Category;
 import com.example.UMC8th_MiniProject.domain.enums.Level;
 import com.example.UMC8th_MiniProject.service.LectureService.LectureService;
 import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,9 +19,12 @@ import java.util.List;
 public class LectureController {
 
     private final LectureService lectureService;
+    @Operation(summary = "강의 전체 조회", description = "카테고리와 레벨 필터링 없이 모든 강의를 조회합니다.")
     @GetMapping
     public ResponseEntity<List<LectureResponse>> getLectures(
+            @Parameter(description = "강의 카테고리 (예: ITPROGRAMMING)")
             @RequestParam(required = false) Category category,
+            @Parameter(description = "강의 수준 (예: BEGINNER)")
             @RequestParam(required = false) Level level
     ) {
         List<LectureResponse> result;
