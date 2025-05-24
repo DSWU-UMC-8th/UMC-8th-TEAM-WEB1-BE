@@ -2,11 +2,10 @@ package com.example.UMC8th_MiniProject.web.controller;
 
 import com.example.UMC8th_MiniProject.domain.enums.Category;
 import com.example.UMC8th_MiniProject.domain.enums.Level;
-import com.example.UMC8th_MiniProject.service.LectureService.LectureService;
+import com.example.UMC8th_MiniProject.service.lectureService.LectureService;
 import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.example.UMC8th_MiniProject.service.reviewService;
 
-import com.example.UMC8th_MiniProject.Repository.ReviewRepository;
-import com.example.UMC8th_MiniProject.Repository.ReviewSpecification;
+import com.example.UMC8th_MiniProject.repository.ReviewRepository;
+import com.example.UMC8th_MiniProject.repository.ReviewSpecification;
 import com.example.UMC8th_MiniProject.domain.Review;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewFilterRequestDTO;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewResponse;

@@ -2,7 +2,7 @@ package com.example.UMC8th_MiniProject.web.controller;
 
 import com.example.UMC8th_MiniProject.apiPayload.ApiResponse;
 import com.example.UMC8th_MiniProject.converter.TempConverter;
-import com.example.UMC8th_MiniProject.service.TempService.TempQueryService;
+import com.example.UMC8th_MiniProject.service.tempService.TempQueryService;
 import com.example.UMC8th_MiniProject.web.dto.TempResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.UMC8th_MiniProject.service.TempService;
+package com.example.UMC8th_MiniProject.service.tempService;
 
 import com.example.UMC8th_MiniProject.apiPayload.code.status.ErrorStatus;
 import com.example.UMC8th_MiniProject.apiPayload.exception.handler.TempHandler;

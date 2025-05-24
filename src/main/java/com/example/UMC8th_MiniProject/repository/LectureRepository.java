@@ -1,4 +1,4 @@
-package com.example.UMC8th_MiniProject.Repository;
+package com.example.UMC8th_MiniProject.repository;
 
 import com.example.UMC8th_MiniProject.domain.Lecture;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.example.UMC8th_MiniProject.service.LectureService;
+package com.example.UMC8th_MiniProject.service.lectureService;
 
-import com.example.UMC8th_MiniProject.Repository.LectureRepository;
+import com.example.UMC8th_MiniProject.repository.LectureRepository;
 import com.example.UMC8th_MiniProject.domain.Lecture;
 import com.example.UMC8th_MiniProject.domain.enums.Category;
 import com.example.UMC8th_MiniProject.domain.enums.Level;
