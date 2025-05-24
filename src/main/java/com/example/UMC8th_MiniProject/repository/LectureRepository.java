@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Repository
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
     // 강의는 카테고리와 레벨에따라 나뉜다.
     List<Lecture> findByCategoryAndLevel(Category category, Level level);
