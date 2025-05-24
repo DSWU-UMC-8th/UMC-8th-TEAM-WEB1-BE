@@ -18,7 +18,7 @@ import java.util.List;
 public class LectureController {
 
     private final LectureService lectureService;
-    @Operation(summary = "강의 전체 조회", description = "카테고리와 레벨 필터링 없이 모든 강의를 조회합니다.")
+    @Operation(summary = "강의 전체 조회 API", description = "카테고리와 레벨 필터링 없이 모든 강의를 조회합니다.")
     @GetMapping
     public ResponseEntity<List<LectureResponse>> getLectures(
             @Parameter(description = "강의 카테고리 (예: ITPROGRAMMING)")
@@ -41,6 +41,7 @@ public class LectureController {
         return ResponseEntity.ok(result);
     }
 
+    @Operation(summary = "강의 상세 조회 API", description = "해당되는 ID의 강의 정보를 상세 조회합니다.")
     @GetMapping("/{lectureId}")
     public ResponseEntity<LectureResponse> getLectureById(@PathVariable Long lectureId) {
         LectureResponse lecture = lectureService.getLectureById(lectureId);
