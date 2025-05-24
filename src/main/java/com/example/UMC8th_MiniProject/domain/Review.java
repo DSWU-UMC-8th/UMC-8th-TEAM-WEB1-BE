@@ -3,9 +3,7 @@ package com.example.UMC8th_MiniProject.domain;
 import com.example.UMC8th_MiniProject.domain.common.BaseEntity;
 import com.example.UMC8th_MiniProject.domain.enums.StudyTime;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -14,6 +12,8 @@ import java.math.BigDecimal;
 @AttributeOverride(name = "createdAt", column = @Column(name = "created_at"))
 @AttributeOverride(name = "updatedAt", column = @Column(name = "updated_at"))
 @Getter
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Review extends BaseEntity {
 
@@ -39,4 +39,5 @@ public class Review extends BaseEntity {
     @Column(name = "likes")
     private Integer likes = 0;
 
+    private String imgUrl;
 }
