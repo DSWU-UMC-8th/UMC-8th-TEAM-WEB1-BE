@@ -40,4 +40,8 @@ public class Review extends BaseEntity {
     private Integer likes = 0;
 
     private String imgUrl;
+
+    public void increaseLikes() {
+        this.likes = this.likes + 1;
+    }
 }
