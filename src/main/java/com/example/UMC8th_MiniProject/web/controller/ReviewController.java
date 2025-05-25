@@ -44,4 +44,22 @@ public class ReviewController {
         List<ReviewResponse.SearchReviewResponse> result = reviewService.reviewFilter(filterDto, pageNumber,2);
         return ApiResponse.onSuccess(result);
     }
+
+    @Operation(summary = "리뷰 좋아요 API", description = "특정 리뷰에 좋아요를 누르는 API입니다.")
+    @PostMapping("/{reviewId}/like")
+    public ApiResponse<ReviewResponse.LikeResponse> likeReview(
+            @PathVariable Long reviewId) {
+
+        ReviewResponse.LikeResponse result = reviewService.increaseLikes(reviewId);
+        return ApiResponse.onSuccess(result);
+    }
+
+    @Operation(summary = "리뷰 등록 시 강의 검색 API", description = "리뷰 등록 시 입력할 강의를 검색합니다. lectureId, name, teacher, platform을 반환합니다.")
+    @GetMapping("/lecture/search")
+    public ApiResponse<List<ReviewResponse.LectureSearchResponse>> searchLecturesForReview(
+            @Parameter(description = "강의 키워드") @RequestParam String keyword) {
+
+        List<ReviewResponse.LectureSearchResponse> result = reviewService.searchLecturesForReview(keyword);
+        return ApiResponse.onSuccess(result);
+    }
 }
