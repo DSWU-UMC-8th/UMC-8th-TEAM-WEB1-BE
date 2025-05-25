@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "Review")
 @AttributeOverride(name = "createdAt", column = @Column(name = "created_at"))
-@AttributeOverride(name = "updatedAt", column = @Column(name = "updated_at"))
 @Getter
 @AllArgsConstructor
 @Builder
@@ -40,4 +39,8 @@ public class Review extends BaseEntity {
     private Integer likes = 0;
 
     private String imgUrl;
+
+    public void increaseLikes() {
+        this.likes = this.likes + 1;
+    }
 }

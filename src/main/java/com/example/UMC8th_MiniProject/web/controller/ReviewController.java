@@ -44,4 +44,13 @@ public class ReviewController {
         List<ReviewResponse.SearchReviewResponse> result = reviewService.reviewFilter(filterDto, pageNumber,2);
         return ApiResponse.onSuccess(result);
     }
+
+    @Operation(summary = "리뷰 좋아요 API", description = "특정 리뷰에 좋아요를 누르는 API입니다.")
+    @PostMapping("/{reviewId}/like")
+    public ApiResponse<ReviewResponse.LikeResponse> likeReview(
+            @PathVariable Long reviewId) {
+
+        ReviewResponse.LikeResponse result = reviewService.increaseLikes(reviewId);
+        return ApiResponse.onSuccess(result);
+    }
 }

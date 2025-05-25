@@ -60,4 +60,17 @@ public class ReviewService {
                 .createdAt(review.getCreatedAt())
                 .build();
     }
+
+    @Transactional
+    public ReviewResponse.LikeResponse increaseLikes(Long reviewId) {
+        Review review = reviewRepository.findById(reviewId)
+                .orElseThrow(() -> new RuntimeException("리뷰를 찾을 수 없습니다."));
+
+        review.increaseLikes();
+
+        return ReviewResponse.LikeResponse.builder()
+                .reviewId(reviewId)
+                .currentLikes(review.getLikes())
+                .build();
+    }
 }

@@ -22,4 +22,12 @@ public class ReviewResponse {
         String imageUrl;
         LocalDateTime createdAt;
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    public static class LikeResponse {
+        Long reviewId;
+        Integer currentLikes;
+    }
 }
