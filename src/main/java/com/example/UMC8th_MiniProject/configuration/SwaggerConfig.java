@@ -16,7 +16,7 @@ public class SwaggerConfig {
     public OpenAPI UMC8thAPI() {
         Info info = new Info()
                 .title("UMC 8th 미니프로젝트")
-                .description("미니프로젝트 PI 명세서")
+                .description("미니프로젝트 API 명세서")
                 .version("1.0.0");
 
         return new OpenAPI()

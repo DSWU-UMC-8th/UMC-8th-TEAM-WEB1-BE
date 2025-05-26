@@ -15,7 +15,7 @@ public class TestContoller {
 
     private final TestService testService;
 
-    @Operation(summary = "사진 업로드 TEST",description = "S3 테스트 API")
+    @Operation(summary = "사진 업로드 TEST",description = "백엔드 테스트용입니다.")
     @PostMapping(value = "/s3", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ApiResponse<String> S3Test(@RequestParam("file") MultipartFile file){
         // 파일 업로드

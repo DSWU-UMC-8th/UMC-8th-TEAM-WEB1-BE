@@ -10,14 +10,12 @@ import com.example.UMC8th_MiniProject.domain.enums.Level;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
-    // 강의는 카테고리와 레벨에따라 나뉜다.
     List<Lecture> findByCategoryAndLevel(Category category, Level level);
-    // 추가
     List<Lecture> findByCategory(Category category);
     List<Lecture> findByLevel(Level level);
     List<Lecture> findByNameContaining(String keyword);
-
 }

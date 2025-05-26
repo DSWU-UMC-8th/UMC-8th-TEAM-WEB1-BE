@@ -25,7 +25,6 @@ public class AmazonS3Manager{
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentLength(file.getSize());
 
-        // ✅ Content-Type 설정
         String contentType = Optional.ofNullable(file.getContentType()).orElse("application/octet-stream");
         metadata.setContentType(contentType);
 
@@ -40,8 +39,6 @@ public class AmazonS3Manager{
         return amazonS3.getUrl(amazonConfig.getBucket(), keyName).toString();
     }
 
-
-    //리뷰 사진 저장
     public String generateReviewKeyName(String uuid) {
         return amazonConfig.getReviewPath() + '/' + uuid;
     }
