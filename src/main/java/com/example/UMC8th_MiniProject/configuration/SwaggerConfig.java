@@ -1,4 +1,4 @@
-package com.example.UMC8th_MiniProject.global.configuration;
+package com.example.UMC8th_MiniProject.configuration;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
