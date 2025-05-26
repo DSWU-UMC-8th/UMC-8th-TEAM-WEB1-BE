@@ -14,4 +14,5 @@ public class ReviewFilterRequestDTO {
     Category category;
     Level level;
     StudyTime studyTime;
+    String keyword;
 }

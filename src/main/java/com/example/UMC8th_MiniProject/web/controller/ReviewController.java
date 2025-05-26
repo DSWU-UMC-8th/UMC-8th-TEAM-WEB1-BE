@@ -1,13 +1,14 @@
 package com.example.UMC8th_MiniProject.web.controller;
 
 import com.example.UMC8th_MiniProject.apiPayload.ApiResponse;
+import com.example.UMC8th_MiniProject.converter.TofilterDtoConverter;
 import com.example.UMC8th_MiniProject.domain.enums.Category;
 import com.example.UMC8th_MiniProject.domain.enums.Level;
 import com.example.UMC8th_MiniProject.domain.enums.StudyTime;
+import com.example.UMC8th_MiniProject.service.reviewService.ReviewSearchService;
 import com.example.UMC8th_MiniProject.service.reviewService.ReviewService;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewFilterRequestDTO;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewResponse;
-import com.example.UMC8th_MiniProject.converter.TofilterDtoConverter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.constraints.Min;
@@ -22,6 +23,7 @@ import java.util.List;
 public class ReviewController {
 
     private final ReviewService reviewService;
+    private final ReviewSearchService reviewSearchService;
 
     @Operation(summary = "popular 탭 강의 인기순 조회 API", description = "popular 탭 강의 조회 API입니다. 기본으로 인기순 조회되며, 파라미터 값으로 옵션 넘겨주세요. 페이지는 0부터 시작합니다.")
     @GetMapping("/latest")
@@ -42,6 +44,44 @@ public class ReviewController {
                                                                                   @RequestParam(defaultValue = "0") @Min(0) Integer pageNumber){
         ReviewFilterRequestDTO filterDto = TofilterDtoConverter.toReviewFilterRequestDTO(category,level,studyTime);
         List<ReviewResponse.SearchReviewResponse> result = reviewService.reviewFilter(filterDto, pageNumber,2);
+        return ApiResponse.onSuccess(result);
+    }
+
+    @Operation(summary = "리뷰 좋아요 API", description = "특정 리뷰에 좋아요를 누르는 API입니다.")
+    @PostMapping("/{reviewId}/like")
+    public ApiResponse<ReviewResponse.LikeResponse> likeReview(
+            @PathVariable Long reviewId) {
+
+        ReviewResponse.LikeResponse result = reviewService.increaseLikes(reviewId);
+        return ApiResponse.onSuccess(result);
+    }
+
+
+    @Operation(summary = "리뷰 등록 시 강의 검색 API", description = "리뷰 등록 시 입력할 강의를 검색합니다. lectureId, name, teacher, platform을 반환합니다.")
+    @GetMapping("/lecture/search")
+    public ApiResponse<List<ReviewResponse.LectureSearchResponse>> searchLecturesForReview(
+            @Parameter(description = "강의 키워드") @RequestParam String keyword) {
+
+        List<ReviewResponse.LectureSearchResponse> result = reviewService.searchLecturesForReview(keyword);
+        return ApiResponse.onSuccess(result);
+    }
+
+    @Operation(summary = "리뷰 검색 API", description = "키워드로 리뷰를 검색합니다. reviewId, rate, content, studyTime, likes, imgurl, createdAt을 반환합니다.")
+    @GetMapping("/search")
+    public ApiResponse<List<ReviewResponse.SearchReviewResponse>> searchReviews(
+            @Parameter(description = "리뷰 내용 키워드") @RequestParam String keyword,
+            @Parameter(description = "정렬 기준 (rating, createdAt, likes)")
+            @RequestParam(defaultValue = "rating") String sortBy,
+            @Parameter(description = "정렬 방향 (asc, desc)")
+            @RequestParam(defaultValue = "desc") String direction,
+            @Parameter(description = "페이지 번호 (0부터 시작)")
+            @RequestParam(defaultValue = "0") @Min(0) Integer pageNumber,
+            @Parameter(description = "페이지 크기")
+            @RequestParam(defaultValue = "5") Integer size) {
+
+        List<ReviewResponse.SearchReviewResponse> result =
+                reviewSearchService.searchReviewsByKeyword(keyword, pageNumber, size, sortBy, direction);
+
         return ApiResponse.onSuccess(result);
     }
 }

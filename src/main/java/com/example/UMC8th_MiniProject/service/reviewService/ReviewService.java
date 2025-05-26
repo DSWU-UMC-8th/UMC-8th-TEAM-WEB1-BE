@@ -1,7 +1,9 @@
 package com.example.UMC8th_MiniProject.service.reviewService;
 
-import com.example.UMC8th_MiniProject.repository.ReviewRepository;
+import com.example.UMC8th_MiniProject.domain.Lecture;
 import com.example.UMC8th_MiniProject.domain.Review;
+import com.example.UMC8th_MiniProject.repository.LectureRepository;
+import com.example.UMC8th_MiniProject.repository.ReviewRepository;
 import com.example.UMC8th_MiniProject.repository.ReviewSpecification;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewFilterRequestDTO;
 import com.example.UMC8th_MiniProject.web.dto.review.ReviewResponse;
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
 public class ReviewService {
 
     private final ReviewRepository reviewRepository;
+    private final LectureRepository lectureRepository;
 
     public List<ReviewResponse.SearchReviewResponse> reviewFilter(ReviewFilterRequestDTO filterRequestDTO, Integer pageNumber, Integer type){
 
@@ -60,4 +63,35 @@ public class ReviewService {
                 .createdAt(review.getCreatedAt())
                 .build();
     }
+
+    @Transactional
+    public ReviewResponse.LikeResponse increaseLikes(Long reviewId) {
+        Review review = reviewRepository.findById(reviewId)
+                .orElseThrow(() -> new RuntimeException("리뷰를 찾을 수 없습니다."));
+
+        review.increaseLikes();
+
+        return ReviewResponse.LikeResponse.builder()
+                .reviewId(reviewId)
+                .currentLikes(review.getLikes())
+                .build();
+    }
+
+    public List<ReviewResponse.LectureSearchResponse> searchLecturesForReview(String keyword) {
+        List<Lecture> lectures = lectureRepository.findByNameContaining(keyword);
+
+        return lectures.stream()
+                .map(this::toLectureSearchDTO)
+                .collect(Collectors.toList());
+    }
+
+    private ReviewResponse.LectureSearchResponse toLectureSearchDTO(Lecture lecture) {
+        return ReviewResponse.LectureSearchResponse.builder()
+                .lectureId(lecture.getLectureId())
+                .name(lecture.getName())
+                .teacher(lecture.getTeacher())
+                .platform(lecture.getPlatform())
+                .build();
+    }
+
 }
