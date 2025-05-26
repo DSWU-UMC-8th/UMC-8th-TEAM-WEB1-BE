@@ -56,6 +56,7 @@ public class ReviewController {
         return ApiResponse.onSuccess(result);
     }
 
+
     @Operation(summary = "리뷰 등록 시 강의 검색 API", description = "리뷰 등록 시 입력할 강의를 검색합니다. lectureId, name, teacher, platform을 반환합니다.")
     @GetMapping("/lecture/search")
     public ApiResponse<List<ReviewResponse.LectureSearchResponse>> searchLecturesForReview(

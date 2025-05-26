@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "Review")
 @AttributeOverride(name = "createdAt", column = @Column(name = "created_at"))
-@AttributeOverride(name = "updatedAt", column = @Column(name = "updated_at"))
 @Getter
 @AllArgsConstructor
 @Builder
