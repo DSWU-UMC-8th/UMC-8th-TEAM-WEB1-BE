@@ -19,4 +19,8 @@ public class ReviewSpecification {
     public static Specification<Review> hasStudyTime(StudyTime studyTime) {
         return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("studyTime"), studyTime);
     }
+
+    public static Specification<Review> contentContains(String keyword) {
+        return (root, query, cb) -> cb.like(root.get("content"), "%" + keyword + "%");
+    }
 }
