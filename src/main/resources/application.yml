@@ -1,11 +1,14 @@
 spring:
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url:
+    username:
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
-    hibernate:
+    hibernate: # 기본적으로 컬럼명을 바꾸기 때문에
+      # 바꾸지 않도록 아래에 명시적으로 지정해야한다.
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
     show-sql: true
     defer-datasource-initialization: true
@@ -16,6 +19,7 @@ spring:
         use_sql_comments: true
         jdbc:
           batch_size: 1000
+
   sql:
     init:
       mode: always
@@ -23,12 +27,12 @@ spring:
 cloud:
   aws:
     s3:
-      bucket: ${S3_BUCKET_NAME}
+      bucket:
       path: reviews
     region:
-      static: ${AWS_REGION}
+      static: ap-northeast-2
     stack:
       auto: false
     credentials:
-      accessKey: ${AWS_ACCESS_KEY_ID}
-      secretKey: ${AWS_SECRET_ACCESS_KEY}
+      accessKey:
+      secretKey:
