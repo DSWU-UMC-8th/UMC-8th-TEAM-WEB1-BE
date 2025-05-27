@@ -2,6 +2,7 @@ package com.example.UMC8th_MiniProject.service.lectureService;
 
 import com.example.UMC8th_MiniProject.repository.LectureRepository;
 import com.example.UMC8th_MiniProject.domain.Lecture;
+import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,9 @@ public class SearchService {
 
     private final LectureRepository lectureRepository;
 
-    public List<String> findAllByKeyword(final String keyword){
-        List<Lecture> lectures = lectureRepository.findByNameContaining(keyword);
-        System.out.println("검색 키워드: " + keyword);
-        lectures.forEach(l -> System.out.println(" - " + l.getName()));
-        return lectures.stream().map(Lecture::getName).collect(Collectors.toList());
+    public List<LectureResponse> findAllByKeyword(final String keyword){
+        return lectureRepository.findByNameContaining(keyword).stream()
+                .map(LectureResponse::new)
+                .collect(Collectors.toList());
     }
 }
