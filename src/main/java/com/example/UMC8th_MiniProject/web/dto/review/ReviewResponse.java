@@ -16,6 +16,7 @@ public class ReviewResponse {
     @AllArgsConstructor
     public static class SearchReviewResponse{
         Long reviewId;
+        String lectureName;
         BigDecimal rate;
         String teacher;
         StudyTime studyTime;
