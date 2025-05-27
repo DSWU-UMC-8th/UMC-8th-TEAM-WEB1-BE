@@ -17,6 +17,7 @@ public class ReviewResponse {
     public static class SearchReviewResponse{
         Long reviewId;
         BigDecimal rate;
+        String teacher;
         StudyTime studyTime;
         Integer likes;
         String content;
