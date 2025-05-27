@@ -1,0 +1,22 @@
+INSERT INTO lecture (name, teacher, platform, total_rating, category, level)
+VALUES
+    ('Java 기초 완전 정복', '홍길동', 'CLASS101', 4.75, 'ITPROGRAMMING', 'BEGINNER'),
+    ('포토샵 입문 강의', '김미영', 'COLOSO', 4.50, 'DESIGN', 'ELEMENTARY'),
+    ('프랑스어 회화 초급', '장마리', 'CLASS101', 4.80, 'LANGUAGE', 'BEGINNER'),
+    ('가정식 요리 비법', '이순신', 'COLOSO', 4.60, 'COOKING', 'INTERMEDIATE'),
+    ('재테크 입문자 가이드', '박재현', 'CLASS101', 4.90, 'FINANCIAL', 'BEGINNER'),
+    ('마인드풀니스 명상', '최은정', 'COLOSO', 4.70, 'LIFESTYLE', 'ELEMENTARY'),
+    ('Spring Boot 실전 프로젝트', '이정우', 'CLASS101', 4.85, 'ITPROGRAMMING', 'INTERMEDIATE'),
+    ('일러스트레이터 완전정복', '한지민', 'COLOSO', 4.55, 'DESIGN', 'ADVANCED'),
+    ('일본어 마스터', '타카하시', 'CLASS101', 4.95, 'LANGUAGE', 'ADVANCED'),
+    ('푸드 스타일링 클래스', '정유미', 'COLOSO', 4.65, 'COOKING', 'ELEMENTARY'),
+    ('부자되는 재무 설계', '이상훈', 'CLASS101', 4.88, 'FINANCIAL', 'INTERMEDIATE'),
+    ('힐링요가 클래스', '강소라', 'COLOSO', 4.58, 'LIFESTYLE', 'BEGINNER'),
+    ('Python으로 배우는 데이터 분석', '박지성', 'CLASS101', 4.92, 'ITPROGRAMMING', 'ADVANCED'),
+    ('UX/UI 디자인 워크샵', '최지민', 'COLOSO', 4.62, 'DESIGN', 'INTERMEDIATE'),
+    ('영어 면접 완벽 대비', 'Sarah', 'CLASS101', 4.78, 'LANGUAGE', 'INTERMEDIATE'),
+    ('한식 대가의 요리법', '백종원', 'COLOSO', 4.98, 'COOKING', 'ADVANCED'),
+    ('부동산 경매 투자 입문', '김현수', 'CLASS101', 4.83, 'FINANCIAL', 'ELEMENTARY'),
+    ('아로마 테라피 클래스', '윤은혜', 'COLOSO', 4.55, 'LIFESTYLE', 'INTERMEDIATE'),
+    ('React & Redux 실전', '조현수', 'CLASS101', 4.77, 'ITPROGRAMMING', 'ADVANCED'),
+    ('Zbrush 캐릭터 모델링', '정동훈', 'COLOSO', 4.68, 'DESIGN', 'ADVANCED');
