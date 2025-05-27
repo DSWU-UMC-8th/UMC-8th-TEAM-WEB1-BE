@@ -64,6 +64,7 @@ public class ReviewService {
         return ReviewResponse.SearchReviewResponse.builder()
                 .reviewId(review.getReviewId())
                 .rate(review.getRating())
+                .lectureName(lecture.getName())
                 .studyTime(review.getStudyTime())
                 .teacher(lecture.getTeacher())
                 .likes(review.getLikes())
