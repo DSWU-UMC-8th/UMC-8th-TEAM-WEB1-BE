@@ -8,6 +8,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    defer-datasource-initialization: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -15,6 +16,10 @@ spring:
         use_sql_comments: true
         jdbc:
           batch_size: 1000
+  sql:
+    init:
+      mode: always
+
 cloud:
   aws:
     s3:
