@@ -60,10 +60,12 @@ public class ReviewService {
     }
 
     private ReviewResponse.SearchReviewResponse toDTO(Review review) {
+        Lecture lecture = review.getLecture();
         return ReviewResponse.SearchReviewResponse.builder()
                 .reviewId(review.getReviewId())
                 .rate(review.getRating())
                 .studyTime(review.getStudyTime())
+                .teacher(lecture.getTeacher())
                 .likes(review.getLikes())
                 .content(review.getContent())
                 .imageUrl(review.getImgUrl())
@@ -101,7 +103,6 @@ public class ReviewService {
                 .build();
     }
 
-    //리뷰 등록 서비스
     @Transactional
     public Long createReview(ReviewRequest.postReviewDTO request, MultipartFile file){
         Lecture findLecture = lectureRepository.findById(request.getLectureId())
