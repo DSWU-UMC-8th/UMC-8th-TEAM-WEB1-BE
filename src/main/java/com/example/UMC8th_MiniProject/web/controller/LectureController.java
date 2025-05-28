@@ -12,6 +12,7 @@ import com.example.UMC8th_MiniProject.service.lectureService.LectureService;
 import com.example.UMC8th_MiniProject.service.reviewService.ReviewService;
 import com.example.UMC8th_MiniProject.web.dto.LectureResponse;
 import com.example.UMC8th_MiniProject.web.dto.lecture.TotalRatingResponseDTO;
+import com.example.UMC8th_MiniProject.web.dto.review.ReviewResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ import java.util.List;
 public class LectureController {
 
     private final LectureService lectureService;
+    private final ReviewService reviewService;
     private final LectureRepository lectureRepository;
 
     @Operation(summary = "강의 전체 조회 API", description = "카테고리와 레벨 필터링 없이 모든 강의를 조회합니다.")
@@ -70,5 +72,13 @@ public class LectureController {
         }
         int[] ratingCounts = lectureService.getRatingCounts(lectureReviewRatingList);
         return ApiResponse.onSuccess(TotalRatingConverter.toTotalRatigDTO(lecture,ratingCounts,lectureReviewRatingList));
+    }
+
+    @Operation(summary = "강의에 해당하는 리뷰 전체 조회 API", description = "특정 강의 ID를 입력하면 ID에 해당하는 모든 리뷰를 조회합니다.")
+    @GetMapping("/{lectureId}/reviews")
+    public ApiResponse<List<ReviewResponse.SearchReviewResponse>> getReviewsByLectureId(
+            @PathVariable Long lectureId) {
+        List<ReviewResponse.SearchReviewResponse> result = reviewService.getReviewsByLectureId(lectureId);
+        return ApiResponse.onSuccess(result);
     }
 }

@@ -131,4 +131,15 @@ public class ReviewService {
         final String keyName = amazonS3Manager.generateReviewKeyName(uuid);
         return amazonS3Manager.uploadFile(keyName, img);
     }
+
+    public List<ReviewResponse.SearchReviewResponse> getReviewsByLectureId(Long lectureId) {
+        Lecture lecture = lectureRepository.findById(lectureId)
+                .orElseThrow(() -> new RuntimeException("강의를 찾을 수 없습니다."));
+
+        List<Review> reviews = reviewRepository.findAllByLecture(lecture);
+
+        return reviews.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    }
 }
