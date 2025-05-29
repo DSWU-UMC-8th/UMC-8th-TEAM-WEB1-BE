@@ -14,7 +14,7 @@
 <br/>
 <br/>
 ## 💻 BACKEND Developer
-| <center>이소정</center>| <center>손재윤</center>| <center>이수진</center>| 
+| <center>이소정</center>| <center>이수진</center>| <center>손재윤</center>| 
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
 | <center> <img width="150px" src="https://avatars.githubusercontent.com/Sojeong0430" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/leewatertrue" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/huggywuggy1289" /></center> 
 | [@Sojeong0430](https://github.com/Sojeong0430) | [@leewatertrue](https://github.com/leewatertrue)| [@huggywuggy1289](https://github.com/huggywuggy1289) | 
@@ -38,8 +38,8 @@
 - 강의 별점 통계 조회 **GET**  **`소정`**
 - 강의에 해당하는 리뷰 반환 **GET**  **`수진`**
 - 강의평 등록 **POST**  **`소정`**
-- 강의평 등록 시 강의 검색 **GET**  **`재윤`**
-- 강의평 조회 - 최신순 / 인기순 **GET**  **`소정`**
+- 강의평 등록 시 강의 검색 **GET**  **`수진`**
+- 강의평 조회 최신순 / 인기순 **GET**  **`소정`**
 - 강의평 좋아요 **POST**  **`수진`**
 - 강의평 검색 **GET**  **`수진`**
 
