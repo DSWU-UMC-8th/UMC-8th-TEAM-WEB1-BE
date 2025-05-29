@@ -6,21 +6,21 @@
 
   # REVIEW IN CLASS
 
- 『DUKSUNG UMC 8th MINI PROJECT WEB TEAM 1 』
+ 『 DUKSUNG UMC 8th MINI PROJECT WEB TEAM 1 』
 </div>
 
 ## REVIEW IN CLASS
 다양한 강의 리뷰를 찾아보고, 직접 리뷰를 등록할 수 있는 데스크탑 웹입니다. 
 <br/>
 <br/>
-## BACKEND Developer
+## 💻 BACKEND Developer
 | <center>이소정</center>| <center>손재윤</center>| <center>이수진</center>| 
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
 | <center> <img width="150px" src="https://avatars.githubusercontent.com/Sojeong0430" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/leewatertrue" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/huggywuggy1289" /></center> 
 | [@Sojeong0430](https://github.com/Sojeong0430) | [@leewatertrue](https://github.com/leewatertrue)| [@huggywuggy1289](https://github.com/huggywuggy1289) | 
 <br/>
 
-## 역할 분담
+## 👥 역할 분담
 
 ### 초기 세팅
 - 엔터티 설정 + 초기 세팅 **`수진`**
@@ -45,9 +45,12 @@
 
 <br/>
 
+## 📍 서버 아키텍처
+![image](https://github.com/user-attachments/assets/e9c1e189-c241-4169-b885-1799153c6c2c)
 
 
-## 커밋컨벤션
+
+## 🤝 커밋컨벤션 
 
 | 커밋 유형  | 의미                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------- |
@@ -67,5 +70,5 @@
 
 
 
-## 기술 스택
+## ⚙️ 기술 스택
 <img height="50" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png"> <img height="50" src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png"> &nbsp; <img height="50" src="https://user-images.githubusercontent.com/25181517/183891303-41f257f8-6b3d-487c-aa56-c497b880d0fb.png">  &nbsp; <img height="50" src="https://user-images.githubusercontent.com/25181517/183896132-54262f2e-6d98-41e3-8888-e40ab5a17326.png">
